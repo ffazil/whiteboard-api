@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.mmpsoftware.aurora.idem.IdemStarter</start-class>
+        <start-class>org.blanc.whiteboard.WhiteboardAPIStarter</start-class>
         <java.version>1.8</java.version>
     </properties>
 
