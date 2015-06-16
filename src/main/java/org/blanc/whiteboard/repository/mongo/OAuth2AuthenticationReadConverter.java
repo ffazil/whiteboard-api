@@ -1,7 +1,7 @@
-package org.blanc.whiteboard.repository.mongodb;
+package org.blanc.whiteboard.repository.mongo;
 
 import com.mongodb.DBObject;
-import org.blanc.whiteboard.domain.User;
+import org.blanc.whiteboard.domain.mongo.User;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.convert.ReadingConverter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

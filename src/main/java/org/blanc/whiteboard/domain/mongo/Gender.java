@@ -1,4 +1,4 @@
-package org.blanc.whiteboard.domain;
+package org.blanc.whiteboard.domain.mongo;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlRootElement;

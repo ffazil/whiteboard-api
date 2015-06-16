@@ -1,4 +1,4 @@
-package org.blanc.whiteboard.domain;
+package org.blanc.whiteboard.domain.mongo;
 
 import org.joda.time.DateTime;
 import org.springframework.data.mongodb.core.mapping.Document;

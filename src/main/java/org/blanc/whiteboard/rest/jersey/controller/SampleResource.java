@@ -1,6 +1,6 @@
 package org.blanc.whiteboard.rest.jersey.controller;
 
-import org.blanc.whiteboard.domain.User;
+import org.blanc.whiteboard.domain.mongo.User;
 import org.blanc.whiteboard.rest.resource.BaseResource;
 import org.springframework.stereotype.Component;
 

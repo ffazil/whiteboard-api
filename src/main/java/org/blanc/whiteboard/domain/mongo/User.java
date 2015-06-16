@@ -1,4 +1,4 @@
-package org.blanc.whiteboard.domain;
+package org.blanc.whiteboard.domain.mongo;
 
 import com.mongodb.DBObject;
 import org.blanc.whiteboard.rest.resource.ApiUser;

@@ -1,11 +1,11 @@
 package org.blanc.whiteboard.service.impl;
 
-import org.blanc.whiteboard.domain.Role;
-import org.blanc.whiteboard.domain.User;
+import org.blanc.whiteboard.domain.mongo.Role;
+import org.blanc.whiteboard.domain.mongo.User;
 import org.blanc.whiteboard.exception.AuthenticationException;
 import org.blanc.whiteboard.exception.DuplicateUserException;
 import org.blanc.whiteboard.exception.UserNotFoundException;
-import org.blanc.whiteboard.repository.mongodb.UserRepository;
+import org.blanc.whiteboard.repository.mongo.UserRepository;
 import org.blanc.whiteboard.rest.resource.ApiUser;
 import org.blanc.whiteboard.rest.resource.CreateUserRequest;
 import org.blanc.whiteboard.rest.resource.UpdateUserRequest;

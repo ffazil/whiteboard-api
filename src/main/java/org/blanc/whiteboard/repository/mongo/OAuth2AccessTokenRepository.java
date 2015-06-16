@@ -1,6 +1,6 @@
-package org.blanc.whiteboard.repository.mongodb;
+package org.blanc.whiteboard.repository.mongo;
 
-import org.blanc.whiteboard.domain.OAuth2AuthenticationAccessToken;
+import org.blanc.whiteboard.domain.mongo.OAuth2AuthenticationAccessToken;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

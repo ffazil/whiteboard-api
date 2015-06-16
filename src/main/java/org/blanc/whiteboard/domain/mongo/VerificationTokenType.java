@@ -1,4 +1,4 @@
-package org.blanc.whiteboard.domain;
+package org.blanc.whiteboard.domain.mongo;
 
 
 public enum VerificationTokenType {

@@ -1,4 +1,4 @@
-package org.blanc.whiteboard.domain;
+package org.blanc.whiteboard.domain.mongo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.util.Assert;

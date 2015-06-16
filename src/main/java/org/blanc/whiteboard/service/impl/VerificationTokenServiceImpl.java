@@ -1,12 +1,12 @@
 package org.blanc.whiteboard.service.impl;
 
 import org.apache.commons.codec.binary.Base64;
-import org.blanc.whiteboard.domain.User;
-import org.blanc.whiteboard.domain.VerificationToken;
-import org.blanc.whiteboard.domain.VerificationTokenType;
+import org.blanc.whiteboard.domain.mongo.User;
+import org.blanc.whiteboard.domain.mongo.VerificationToken;
+import org.blanc.whiteboard.domain.mongo.VerificationTokenType;
 import org.blanc.whiteboard.exception.*;
-import org.blanc.whiteboard.repository.mongodb.UserRepository;
-import org.blanc.whiteboard.repository.mongodb.VerificationTokenRepository;
+import org.blanc.whiteboard.repository.mongo.UserRepository;
+import org.blanc.whiteboard.repository.mongo.VerificationTokenRepository;
 import org.blanc.whiteboard.rest.resource.LostPasswordRequest;
 import org.blanc.whiteboard.rest.resource.PasswordRequest;
 import org.blanc.whiteboard.service.MailSenderService;

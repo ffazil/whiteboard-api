@@ -1,6 +1,6 @@
 package org.blanc.whiteboard.rest.resource;
 
-import org.blanc.whiteboard.domain.User;
+import org.blanc.whiteboard.domain.mongo.User;
 import org.hibernate.validator.constraints.Email;
 
 import javax.validation.constraints.NotNull;

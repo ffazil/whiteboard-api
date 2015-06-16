@@ -1,7 +1,7 @@
 package org.blanc.whiteboard.config;
 
 import com.mongodb.Mongo;
-import org.blanc.whiteboard.repository.mongodb.OAuth2AuthenticationReadConverter;
+import org.blanc.whiteboard.repository.mongo.OAuth2AuthenticationReadConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@EnableMongoRepositories(basePackages = {"org.blanc.whiteboard.repository.mongodb"})
+@EnableMongoRepositories(basePackages = { "org.blanc.whiteboard.repository.mongo" })
 public class MongoDbConfiguration extends AbstractMongoConfiguration {
 
     private static final Logger LOG = LoggerFactory.getLogger(MongoDbConfiguration.class);

@@ -1,8 +1,8 @@
 package org.blanc.whiteboard.rest.resource;
 
-import org.blanc.whiteboard.domain.User;
+import org.blanc.whiteboard.domain.mongo.User;
 import org.blanc.whiteboard.exception.AuthorizationException;
-import org.blanc.whiteboard.repository.mongodb.UserRepository;
+import org.blanc.whiteboard.repository.mongo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 

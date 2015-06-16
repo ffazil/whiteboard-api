@@ -1,6 +1,6 @@
 package org.blanc.whiteboard.service;
 
-import org.blanc.whiteboard.domain.VerificationToken;
+import org.blanc.whiteboard.domain.mongo.VerificationToken;
 import org.blanc.whiteboard.rest.resource.LostPasswordRequest;
 import org.blanc.whiteboard.rest.resource.PasswordRequest;
 

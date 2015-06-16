@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Scope;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-@Configuration
+//@Configuration
 public class SupportConfiguration {
 
     @Bean

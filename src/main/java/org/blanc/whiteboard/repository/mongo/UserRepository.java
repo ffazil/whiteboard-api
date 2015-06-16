@@ -1,6 +1,6 @@
-package org.blanc.whiteboard.repository.mongodb;
+package org.blanc.whiteboard.repository.mongo;
 
-import org.blanc.whiteboard.domain.User;
+import org.blanc.whiteboard.domain.mongo.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {

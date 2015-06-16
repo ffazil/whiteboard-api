@@ -1,7 +1,7 @@
-package org.blanc.whiteboard.repository.mongodb;
+package org.blanc.whiteboard.repository.mongo;
 
-import org.blanc.whiteboard.domain.VerificationToken;
-import org.blanc.whiteboard.domain.VerificationTokenType;
+import org.blanc.whiteboard.domain.mongo.VerificationToken;
+import org.blanc.whiteboard.domain.mongo.VerificationTokenType;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

@@ -1,9 +1,9 @@
 package org.blanc.whiteboard.util;
 
 import org.apache.commons.codec.binary.Base64;
-import org.blanc.whiteboard.domain.User;
-import org.blanc.whiteboard.domain.VerificationToken;
-import org.blanc.whiteboard.domain.VerificationTokenType;
+import org.blanc.whiteboard.domain.mongo.User;
+import org.blanc.whiteboard.domain.mongo.VerificationToken;
+import org.blanc.whiteboard.domain.mongo.VerificationTokenType;
 
 import java.io.Serializable;
 
