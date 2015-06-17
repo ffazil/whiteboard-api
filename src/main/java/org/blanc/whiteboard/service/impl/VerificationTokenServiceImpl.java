@@ -24,7 +24,7 @@ import javax.validation.Validator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-@Service("verificationTokenService")
+//@Service("verificationTokenService")
 public class VerificationTokenServiceImpl extends BaseService implements VerificationTokenService {
 
     private static final Pattern UUID_PATTERN = Pattern.compile("^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$");

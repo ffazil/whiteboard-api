@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Scope;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-//@Configuration
+@Configuration
 public class SupportConfiguration {
 
     @Bean
@@ -17,15 +17,15 @@ public class SupportConfiguration {
         return Validation.buildDefaultValidatorFactory().getValidator();
     }
 
-    @Bean
+    /*@Bean
     @Scope(value = "singleton")
     public GenericExceptionMapper genericExceptionMapper() {
         return new GenericExceptionMapper();
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     public HealthCheckResource healthCheckResource() {
         return new HealthCheckResource();
-    }
+    }*/
 
 }

@@ -11,6 +11,8 @@ public interface OAuth2AccessTokenRepository extends MongoRepository<OAuth2Authe
 
     public OAuth2AuthenticationAccessToken findByTokenId(String tokenId);
 
+	public void deleteByTokenId(String tokenId);
+
     public OAuth2AuthenticationAccessToken findByRefreshToken(String refreshToken);
 
     public OAuth2AuthenticationAccessToken findByAuthenticationId(String authenticationId);

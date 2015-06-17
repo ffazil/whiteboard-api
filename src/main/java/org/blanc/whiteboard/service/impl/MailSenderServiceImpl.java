@@ -20,7 +20,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service("mailSenderService")
+//@Service("mailSenderService")
 public class MailSenderServiceImpl implements MailSenderService {
 
     private static Logger LOG = LoggerFactory.getLogger(MailSenderServiceImpl.class);

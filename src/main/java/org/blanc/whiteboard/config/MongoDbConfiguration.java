@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.MongoDbFactory;
@@ -24,6 +25,7 @@ import java.util.List;
 
 @Configuration
 @EnableMongoRepositories(basePackages = { "org.blanc.whiteboard.repository.mongo" })
+@PropertySource(value = "classpath:mongo.properties")
 public class MongoDbConfiguration extends AbstractMongoConfiguration {
 
     private static final Logger LOG = LoggerFactory.getLogger(MongoDbConfiguration.class);

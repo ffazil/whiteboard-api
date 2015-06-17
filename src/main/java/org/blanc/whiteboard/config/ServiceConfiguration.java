@@ -1,9 +1,8 @@
 package org.blanc.whiteboard.config;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.context.annotation.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -14,4 +13,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = "org.blanc.whiteboard.service.impl", scopedProxy = ScopedProxyMode.INTERFACES)
 @EnableTransactionManagement(proxyTargetClass = true)
 public class ServiceConfiguration {
+
+	@Bean
+	public PasswordEncoder passwordEncoder(){
+		return new StandardPasswordEncoder();
+	}
 }
+
+
