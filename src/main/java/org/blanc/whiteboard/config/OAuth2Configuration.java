@@ -1,7 +1,6 @@
 package org.blanc.whiteboard.config;
 
-import com.google.common.collect.Lists;
-import org.blanc.whiteboard.service.impl.MongoTokenStore;
+import org.blanc.whiteboard.service.impl.JpaTokenStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +25,7 @@ import java.security.KeyPair;
 
 /**
  * @author FFL
- * @since 11-06-2015
+ * @since 11-03-2015
  */
 @Configuration
 @EnableAuthorizationServer
@@ -37,47 +36,24 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    @Qualifier("clientDetailsServiceImpl")
     private ClientDetailsService clientDetailsService;
 
     @Autowired
-    private MongoTokenStore mongoTokenStore;
+    @Qualifier("tenantTokenEnhancer")
+    private TokenEnhancer tenantTokenEnhancer;
 
+    @Autowired
+    private JpaTokenStore jpaTokenStore;
 
-	@Override
-	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+    @Autowired
+    @Qualifier("approvalStoreImpl")
+    private ApprovalStore approvalStore;
 
-		//Allow access to test clients
-		clients.inMemory()
-				.withClient("353b302c44574f565045687e534e7d6a")
-				.secret("286924697e615a672a646a493545646c")
-				.authorizedGrantTypes("password", "refresh_token")
-				.scopes("read", "write")
-				.authorities("ROLE_TEST");
+    @Autowired
+    @Qualifier("authorizationCodeServicesImpl")
+    private AuthorizationCodeServices authorizationCodeServices;
 
-		//Web Application clients
-		clients.inMemory()
-				.withClient("7b5a38705d7b3562655925406a652e32")
-				.secret("655f523128212d6e70634446224c2a48")
-				.authorizedGrantTypes("password", "refresh_token")
-				.scopes("read", "write")
-				.authorities("ROLE_WEB");
-
-		//iOS clients
-		clients.inMemory()
-				.withClient("5e572e694e4d61763b567059273a4d3d")
-				.secret("316457735c4055642744596b302e2151")
-				.authorizedGrantTypes("password", "refresh_token")
-				.scopes("read", "write")
-				.authorities("ROLE_IOS");
-
-		//Android clients
-		clients.inMemory()
-				.withClient("302a7d556175264c7e5b326827497349")
-				.secret("4770414c283a20347c7b553650425773")
-				.authorizedGrantTypes("password", "refresh_token")
-				.scopes("read", "write")
-				.authorities("ROLE_ANDROID");
-	}
 
 
     @Bean
@@ -93,10 +69,9 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
     @Bean
     public TokenEnhancerChain tokenEnhancerChain(){
         final TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
-        tokenEnhancerChain.setTokenEnhancers(Lists.<TokenEnhancer>newArrayList(jwtAccessTokenConverter()));
+        tokenEnhancerChain.setTokenEnhancers(com.google.common.collect.Lists.newArrayList(tenantTokenEnhancer, jwtAccessTokenConverter()));
         return tokenEnhancerChain;
     }
-
 
     @Bean
     public DefaultTokenServices tokenServices() throws Exception {
@@ -104,15 +79,20 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
         tokenServices.setClientDetailsService(clientDetailsService);
         tokenServices.setTokenEnhancer(tokenEnhancerChain());
         tokenServices.setSupportRefreshToken(true);
-        tokenServices.setTokenStore(mongoTokenStore);
+        tokenServices.setTokenStore(jpaTokenStore);
         return tokenServices;
     }
-
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        clients.withClientDetails(clientDetailsService);
+    }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints)
             throws Exception {
         endpoints.authenticationManager(authenticationManager)
+        .approvalStore(approvalStore)
+                .authorizationCodeServices(authorizationCodeServices)
         .tokenServices(tokenServices());
 
     }

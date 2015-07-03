@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.blanc.whiteboard.autoconfig.AssemblerConfiguration,\
+org.blanc.whiteboard.autoconfig.JPAConfiguration,\
+org.blanc.whiteboard.autoconfig.ServiceConfiguration,\
+org.blanc.whiteboard.autoconfig.WebConfiguration,\
+org.blanc.whiteboard.autoconfig.InitialConfiguration

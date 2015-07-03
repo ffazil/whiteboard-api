@@ -34,7 +34,11 @@ public class OAuth2ResourceConfiguration extends ResourceServerConfigurerAdapter
                 // will respond with an HTTP 401 nonetheless.
                 // So we just put all other requests types under OAuth control and exclude OPTIONS.
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/admin/**").access("#oauth2.hasScope('')");
+                .antMatchers(HttpMethod.GET, "/admin/**").access("#oauth2.hasScope('idem-read')")
+                .antMatchers(HttpMethod.POST, "/admin/**").access("#oauth2.hasScope('idem-write')")
+                .antMatchers(HttpMethod.PATCH, "/admin/**").access("#oauth2.hasScope('idem-write')")
+                .antMatchers(HttpMethod.PUT, "/admin/**").access("#oauth2.hasScope('idem-write')")
+                .antMatchers(HttpMethod.DELETE, "/admin/**").access("#oauth2.hasScope('idem-write')");
         http.addFilterAfter(new OncePerRequestFilter() {
             @Override
             protected void doFilterInternal(HttpServletRequest request,
